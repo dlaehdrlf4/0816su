@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>객체 배열 생성과 정렬</title>
+</head>
+<body>
+
+</body>
+<script>
+	//이름과 나이를 갖는 객체를 생성할 수 있는 생성자 함수를 만듬
+	function Person(name, age){
+		// this를 사용해서 속성을 생성하면 인스턴스 속성이 됩니다. 
+		this.name = name
+		this.age = age
+		
+		this.toString = function(){
+			return this.name + ":" + this.age
+		}
+	}
+	//이름의 오름차순 정렬함수  
+	var nameAsc = function(left,right){
+		if(left.name > right.name)
+			return 1; // 앞에께 더 크다 그래서 위에 이프가 맞는 거다.
+		else if(left.name == right.name)
+			return 0;
+		else
+			return -1; // 뒤에께 더 크다.
+	}
+	//이름의 내림차순 정렬함수 
+	var nameDesc = function(left,right){
+		if(left.name > right.name)
+			return -1; // 앞에께 더 크다 그래서 위에 이프가 맞는 거다.
+		else if(left.name == right.name)
+			return 0;
+		else
+			return 1; // 뒤에께 더 크다.
+	}
+	//나이의 오름차순 정렬 함수 
+	var ageAsc = function(left,right){
+		return left.age-right.age;
+	}
+	
+	// 나이의 내림차순 정렬 함수 
+	var ageDesc = function(left,right){
+		return right.age-left.age;
+	}
+	
+	
+	
+	
+	
+	// 위의 있는것을 배열로 생성
+	var stars = [new Person("coby",50), new Person("james",40), new Person("rose",30), new Person("curry",29), new Person("jordan", 53), new Person("tomson",22)]
+	
+//하나의 숫자를 입력받아서 1이면 이름의 오름차순 
+//2이면 이름의 내림차순 3이면 나이의 오름차순
+//4이면 나이의 내림차순 정렬해서 출력
+
+var input = prompt("정렬 방법 선택" )
+input = parseInt(input)
+switch(input){
+case 1:
+	stars.sort(nameAsc)
+	break;
+case 2:
+	stars.sort(nameDesc)
+	break;
+case 3:
+	stars.sort(ageAsc)
+	break;
+case 4:
+	stars.sort(ageDesc)
+	break;
+	}
+	
+	for(idx in stars){
+		document.writeln(stars[idx] + "<br />")
+	}
+	
+	//문자열에 substring 과 비슷하다 배열에서 배열들을 3개 가져오기 
+	//slice는 시작 위치와 마지막 바로 뒤 위치를 받아서 배열을 만들어주는 함수 2,3 이러면 두번째와 3번째 앞  
+	var temp = stars.slice(2,3)
+	for(idx in temp){
+		document.writeln(temp[idx] + "<br />")
+	}
+	
+	
+	
+</script>
+
+</html>

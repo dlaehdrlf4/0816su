@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>배열 관련 함수 </title>
+</head>
+<body>
+
+</body>
+<script>
+	var ar = ["손흥민","박지성","크리스티아누 호날두","메시","안정환","모드리치","라키티치"]
+	var first = ar.slice(0,3)
+	//alert(first)
+	
+	var second = ar.slice(3,6)
+	//alert(second)
+	
+	//filter은 매개변수가 1개이고 Boolean을 리턴하는 함수를 매개변수로 받아서 true를 리턴하는 내용만 가지고 새로운 배열을 만들어서 리턴합니다.
+	//var result = ar.filter(function(element){
+	//	return element.length >= 4
+	//})
+	// 치로 끝나는 데이터만 추출 
+	//result = ar.filter(function(element){
+	//	return element.charAt(element.length-1) == '치'
+	//	})	
+		
+		//map은 리턴되는 데이터를 가지고 배열을 새로 생성 
+	//	result = ar.map(function(element){
+	//	return element.length // 길이를 다 출력 하게 함 영어로 써서 length 부분을 touppercase나 tolowercase를 써서 대소문자 구별을 할 수 도 있음 
+	//	})	
+
+	//map은 리턴되는 데이터를 가지고 배열을 새로 생성 이부분은 없으면 이름없음으로 해주는 코드부분이다.
+	result = ar.map(function(element){
+		if(element == null)
+			element = "이름없음"
+			return element
+		})	
+	//alert(result)
+	//배열 
+	var json = '["HTML","SAS","JQUERY","ADUINO"]'
+	// 객체로 
+	json = '{"language":"java", "db":"oracle"}'
+	
+	
+	result = JSON.parse(json)
+	for (idx in result){
+		document.writeln(idx + ":" +result[idx])
+	}
+	
+	window.open('http://www.daum.net','다음','width=400,height=300,resizalbe:no')
+	
+	
+</script>
+</html>

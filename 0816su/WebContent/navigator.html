@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>브라우저 정보 확인 </title>
+</head>
+<body>
+<!-- 태그 안에 내용이 inner html이다. -->
+	<a href="">내용</a>
+</body>
+<script>
+ //사파리에서 접속하면 구글 홈페이지로 보내기 
+ // 밑에는 크롬으로 접속하면 다음 홈페이지로 보내버렸다. 
+ 	var ar = ['chrome']
+ 	var flag = false
+ for(idx in ar){
+	 if(navigator.userAgent.toLowerCase().indexOf(ar[idx]) >= 0){
+		 flag = true
+		 break
+	 }
+ }
+ if(flag == true){
+	 window.location = "https://www.daum.net"
+ }
+</script>
+</html>

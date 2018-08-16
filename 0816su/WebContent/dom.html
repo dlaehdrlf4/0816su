@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+</head>
+<body>
+	<form>
+	<div id = "msg"></div>
+		<!-- id는 페이지 내에서 구분하기 위한 속성 name은 서버에게 전송할 떄 구분하기 위한 속성 -->
+		이메일:<input type="text" id="email" name="email"/><br />
+		비밀번호:<input type="password" id="pw" name="pw"/><br />
+		비밀번호확인:<input type="password" id="pw1"/><br />
+		이름:<input type="text" id="name" name="name" /><br />
+		<input type="submit" value="회원가입" />
+		<input type ="button" value = "메인으로" id="btn"/>
+		
+	</form>
+</body>
+<script>
+	//전통적인 이벤트 처리 방식  // 이것은 계속 추가가 안되고 하나만 만들어진 상태로 있는다 밑에랑 차이점이다.
+	/*
+	document.getElementById("btn").onclick = function(){
+		location.href = "index.html"
+	}*/
+	
+	//표준 이벤트 처리 방식  // 계속 추가시킬수 있다 하나를 더 만들면 똑같은게 두번 뜨게 된다.
+	document.getElementById("btn").addEventListener('click',function(e){
+		//이벤트 객체 가져오기 
+		var event = e || window.event
+		// 이벤트가 발생한 버튼의 id를 출력 
+		alert(event.target.value)
+	});
+	
+	
+
+	//입력된 값을 가져오거나 설정하고자 할 때 value를 사용
+	document.getElementById("email").value = "donggil"
+	//닫는 태그가 있는 태그들은 안에 내용을 삽입하거나 가져올 수 있습니다.
+	//이 때 사용하는 속성이 innerHTML 입니다.
+	document.getElementById("msg").innerHTML = "안녕하세요" // 태그 안에 내용을 변경 
+	document.getElementById("msg").style.color = 'magenta' // 태그 안에 내용의 스타일을 변경 
+</script>
+</html>
